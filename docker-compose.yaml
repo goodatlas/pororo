@@ -2,8 +2,9 @@ version: '3.6'
 
 services:
   pororo:
-    
-    build: .
+    image: 161969600347.dkr.ecr.ap-northeast-2.amazonaws.com/zeroth/pororo:0.4.0
+
+    #build: .
 
     runtime: nvidia
     tty: true
@@ -15,7 +16,5 @@ services:
       - /mnt/data_output:/mnt/data_output
       - /home/users:/home/users
 
-
     command:
       - /bin/bash
-
