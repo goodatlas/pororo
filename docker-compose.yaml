@@ -3,18 +3,20 @@ version: '3.6'
 services:
   pororo:
     image: 161969600347.dkr.ecr.ap-northeast-2.amazonaws.com/zeroth/pororo:0.4.0
-
-    #build: .
-
+    
     runtime: nvidia
+    
     tty: true
+    
     volumes:
       - ./:/app/workspace
-      - /home/users/tom/.vscode-server/extensions:/root/.vscode-server/extensions
-      # IDC only dirs
-      - /mnt/data_input:/mnt/data_input
-      - /mnt/data_output:/mnt/data_output
+      - /mnt:/mnt
+      - /raid:/raid
       - /home/users:/home/users
+      - ./dev_env/.vim:/root/.vim
+      - ./dev_env/.vimrc:/root/.vimrc
+      - ./dev_env/.bashrc:/root/.bashrc
+      - /home/users/leo/.vscode-server/extensions:/root/.vscode-server/extensions
 
     command:
       - /bin/bash
